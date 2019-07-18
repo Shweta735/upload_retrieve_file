@@ -30,15 +30,15 @@ app.get('/',(req,res)=>{
 app.post('/photo/upload',function(req,res){
 	upload(req,res,(err)=>{
 		if(err) {
-            res.render('error');
+            res.render('error',{message : 'Error in uploading file'});
         }
-        res.render('success');
+    else res.render('success');
 	})
 })
 app.get('/photo/get',function(req,res){
   fs.readdir(path.join(__dirname,'uploads'),function(err,fileNames){
     if(err){
-      res.render('error');
+      res.render('error', {message : 'Error in getting the files'});
     }
     res.render('data',{files:fileNames})
 })
