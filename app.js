@@ -3,6 +3,7 @@ var app = express();
 var multer  =   require('multer');
 var fs = require('fs');
 var path = require('path');
+var mkdirp = require('mkdirp')
 
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
@@ -16,6 +17,11 @@ var storage =   multer.diskStorage({
 var upload = multer({ storage : storage}).single('photo');
 
 app.set('view engine','ejs');
+
+mkdirp('./uploads', function (err) {
+    if (err) console.error(err)
+    else console.log('Created File Upload directory')
+});
 
 app.get('/',(req,res)=>{
 	res.render('index')
