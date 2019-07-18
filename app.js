@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 app.post('/photo/upload',function(req,res){
 	upload(req,res,(err)=>{
 		if(err) {
-            res.end("Error uploading file.");
+            res.render('error');
         }
         res.render('success');
 	})
@@ -32,7 +32,7 @@ app.post('/photo/upload',function(req,res){
 app.get('/photo/get',function(req,res){
   fs.readdir(path.join(__dirname,'uploads'),function(err,fileNames){
     if(err){
-      res.end('error');
+      res.render('error');
     }
     res.render('data',{files:fileNames})
 })
