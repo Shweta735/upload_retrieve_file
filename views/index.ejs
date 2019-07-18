@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload File</title>
+</head>
+<style>
+	body{
+		background-color: #ADD8E6;
+        font-family: sans-serif;
+     }
+	h1 {
+        font-size: 35px;
+        font-weight: 400;
+        text-align: center;
+        }
+     form{
+     	text-align: center;
+     }
+     input{
+     	height : 30px;
+     }
+</style>
+<body>
+	<br/>
+	<h1>Welcome to Image Uploading Site</h1>
+	<br/>
+	<br/>
+	<form enctype="multipart/form-data" action="/photo/upload" method="post">
+		<input type="file" name="photo">
+		<input type="submit" value="Upload Image" name="submit">
+    </form>
+    <br/>
+    <br/>
+    <form action="/photo/get" method="GET">
+        <input type="submit" value="Get Uploaded Images" name="submit">
+	</form>
+</body>
+</html>
